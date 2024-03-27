@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -97,6 +99,7 @@ app.get("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 8000;
+console.log(PORT, process.env.DB_CREDS);
 
 mongoose
   .connect(process.env.DB_CREDS)
